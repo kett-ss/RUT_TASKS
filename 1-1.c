@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-/*
+/**
 * @brief рассчитывает функцию A по заданной формуле
 * @param x - значение параметра x
 * @param y - значение параметра y
@@ -10,7 +10,7 @@
 */
 double GetA(const double x, const double y, const double z);
 
-/*
+/**
 * @brief рассчитывает функцию B по заданной формуле
 * @param x - значение параметра x
 * @param y - значение параметра y
@@ -19,7 +19,7 @@ double GetA(const double x, const double y, const double z);
 */
 double GetB(const double x, const double y, const double z);
 
-/*
+/**
 * @brief точка входа в программу
 * @return возвращает 0, если программа выполнена корректно
 */
@@ -35,7 +35,7 @@ int main()
 
 double GetA(const double x, const double y, const double z)
 {
-	return -y*z*sin(x*z-y)-sqrt(fabs(y*z+x));
+	return exp(-y*z)*sin(x*z-y)-sqrt(fabs(y*z+x));
 }
 
 double GetB(const double x, const double y, const double z)
