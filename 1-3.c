@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+#define DBL_EPSILON (1e-9)
 
 /**
 * @brief функция temperatureChange находит изменение температуры.
@@ -16,7 +18,7 @@ double temperatureChange(double const m, double const q, double const C);
 */
 
 int main() {
-    double m, q;
+    double m = 0, q = 0;
     double const C = 500;
     
     printf("введите m и q\n");
@@ -25,9 +27,9 @@ int main() {
     return 0;
 }
 
-double temperatureChange(double m, double q, double C)
+double temperatureChange(double const m, double const q, double const C)
 {
-    if (m != 0)
+    if (!(fabs(m)<DBL_EPSILON))
     {
         return q / (C * m / 1000);
     }
