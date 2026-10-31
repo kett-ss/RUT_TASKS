@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+#define DBL_EPSILON (1e-9)
 
 /**
 * @brief функция summ находит сумму.
@@ -40,10 +42,10 @@ double divs(double const x, double const y);
 
 int main()
 {   
-    double x;
-    double y;
+    double x = 0;
+    double y = 0;
 
-    printf("введите два числа ");
+    printf("введите два числа\n");
     scanf("%lf %lf", &x, &y);
 	printf("сумма = %lf\n", summ(x, y));
 	printf("разность = %lf\n", subt(x, y));
@@ -69,7 +71,7 @@ double mult(const double x, const double y)
 
 double divs(const double x, const double y)
 {
-    if (y != 0)
+    if (!(fabs(y)<DBL_EPSILON))
     {
         return x / y;
     }
