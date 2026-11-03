@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#define DBL_EPSILON (1e-9)
+#define <float.h>
 
 /**
 * @brief функция summ находит сумму.
