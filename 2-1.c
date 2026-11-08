@@ -1,104 +1,109 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#define DBL_EPSILON (1e-9)
+#include <float.h>
 
 /**
 * @brief функция summ находит сумму.
 * @param x - значение параметра x
 * @param y - значение параметра y
-* @param SUMM - номер операции суммы
-* @param choice - номер операции пользователя
 * @return рассчитанное значение
 */
-double summ(double const x, double const y, int SUMM, int choice);
+double summ(double const x, double const y);
 
 /**
 * @brief функция subt находит вычетание.
 * @param x - значение параметра x
 * @param y - значение параметра y
-* @param SUBT - номер операции вычитания
-* @param choice - номер операции пользователя
 * @return рассчитанное значение
 */
-double subt(double const x, double const y, int SUBT, int choice);
+double subt(double const x, double const y);
 
 /**
 * @brief функция mult находит произведение.
 * @param x - значение параметра x
 * @param y - значение параметра y
-* @param MULT - номер операции умножения
-* @param choice - номер операции пользователя
 * @return рассчитанное значение
 */
-double mult(double const x, double const y, int MULT, int choice);
+double mult(double const x, double const y);
 
 /**
 * @brief функция divs находит частное.
 * @param x - значение параметра x
 * @param y - значение параметра y
-* @param DIVS - номер операции деления
-* @param choice - номер операции пользователя
 * @return рассчитанное значение
 */
-double divs(double const x, double const y, int DIVS, int choice);
+double divs(double const x, double const y);
 
 /**
 * @brief точка входа в программу
 * @return возвращает 0, если программа выполнена корректно
 */
 
-int main()
-{   
+
+enum operations {
+    SUMM = 1,
+    SUBT,
+    MULT,
+    DIVS
+
+};
+
+int main() {   
     double x = 0;
     double y = 0;
     int choice = 0;
-    int SUMM = 1;
-    int SUBT = 2;
-    int MULT = 3;
-    int DIVS = 4;
     
-    printf("введите два числа\n");
+    printf("enter x, y\n");
     scanf("%lf %lf", &x, &y);
-    printf("введите цифру\n");
+    printf("choose operation\n");
     scanf("%d", &choice);
     
-	printf("%lf\n", summ(x, y, SUMM, choice));
-	printf("%lf\n", subt(x, y, SUBT, choice));
-	printf("%lf\n", mult(x, y, MULT, choice));
-	printf("%lf\n", divs(x, y, DIVS, choice));
+	switch (choice)
+    {
+        case SUMM:
+            printf("%lf", summ(x, y));
+            break;
+
+        case SUBT:
+            printf("%lf", subt(x, y));
+            break;
+
+        case MULT:
+            printf("%lf", mult(x, y));
+            break;
+
+        case DIVS:
+            printf("%lf", divs(x, y));
+            break;
+
+        default:
+            printf("error");
+            break;
+    }
 	return 0;
 }
 
-double summ(const double x, const double y, int SUMM, int choice)
+double summ(const double x, const double y)
 {
-    if (choice == SUMM)
-        return x + y;
-    return 0;
+    return x + y;
 }
 
-double subt(const double x, const double y, int SUBT, int choice)
+double subt(const double x, const double y)
 {
-    if (choice == SUBT)
-        return x - y;
-    return 0;
-    
+    return x - y;
 }
 
-double mult(const double x, const double y, int MULT, int choice)
+double mult(const double x, const double y)
 {
-    if (choice == MULT)
-        return x * y;
-    return 0;
+    return x * y;
 }
 
-double divs(const double x, const double y, int DIVS, int choice)
+double divs(const double x, const double y)
 {
     if (!(fabs(y)<DBL_EPSILON))
     {
-        if (DIVS == choice) 
-            return x / y;
-        return 0;
+        return x / y;
     }
     else
     {
@@ -106,4 +111,3 @@ double divs(const double x, const double y, int DIVS, int choice)
         exit(EXIT_FAILURE);
     }
 }
-
