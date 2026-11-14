@@ -79,7 +79,7 @@ int main() {
 
         default:
             printf("error");
-            break;
+            exit(1);
     }
 	return 0;
 }
@@ -107,7 +107,7 @@ double divs(const double x, const double y)
     }
     else
     {
-        printf("ошибка");
+        printf("error");
         exit(EXIT_FAILURE);
     }
 }
