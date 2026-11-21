@@ -1,4 +1,5 @@
-#include <stdio.h>
+// #include <stdio.h>
+#define _USE_MATH_DEFINES
 #include <stdlib.h>
 #include <float.h>
 #include <math.h>
