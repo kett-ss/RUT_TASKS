@@ -2,13 +2,18 @@
 #include <stdlib.h>
 
 /**
-* @brief функция GetAnswer находит решение
+* @brief функция GetNewX находит новый x
 * @param x - значение параметра x
 * @param y - значение параметра y
-* @param new_x - находит новый x
-* @param new_y - находит новый y
 */
-void GetAnswer(double const x, double const y, double *new_x, double *new_y);
+double GetNewX(double const x, double const y);
+
+/**
+* @brief функция GetNewY находит новый y
+* @param x - значение параметра x
+* @param y - значение параметра y
+*/
+double GetNewY(double const x, double const y);
 
 /**
 * @brief точка входа в программу
@@ -19,34 +24,51 @@ main()
 {
     double x = 0;
     double y = 0;
-    double new_x = 0;
-    double new_y = 0;
     
     printf("enter x, y\n");
     scanf("%lf %lf", &x, &y);
-    GetAnswer(x, y, &new_x, &new_y);
-    printf("%lf\n%lf", new_x, new_y);
+    printf("%lf\n", GetNewX(x, y));
+    printf("%lf", GetNewY(x, y));
     return 0;
 }
 
-void GetAnswer(double const x, double const y, double *new_x, double *new_y)
+double GetNewX(double const x, double const y)
 {
     if (x != y)
     {
         if (x > y)
-        {
-            *new_y = (x+y)/2;
-            *new_x = x*y*2;
-        }
+            {
+                return x*y*2;
+            }
         else
-        {
-            *new_x = (x+y)/2;
-            *new_y = x*y*2;
-        }
+            {
+                return (x+y)/2;
+            }
     }
     else
     {
         printf("error");
         exit(1);
     }
+        
+}
+
+double GetNewY(double const x, double const y)
+{
+    if (x != y)
+    {
+        if (x > y)
+            {
+                return (x+y)/2;
+            }
+        else
+            {
+                return x*y*2;
+            }
+    }
+    else
+        {
+        printf("error");
+        exit(1);
+        }
 }
